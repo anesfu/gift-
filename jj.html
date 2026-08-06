@@ -132,11 +132,7 @@ button{font:inherit; color:inherit; background:none; border:none; cursor:pointer
   font-size:clamp(1.5rem,5vw,2rem); margin:0 0 .5rem;
 }
 .message-sub{ font-family:'Tajawal',sans-serif; line-height:1.9; font-size:1rem; opacity:.96; margin:0; }
-.replay-btn{
-  margin-top:1.2rem; font-weight:700; font-size:.9rem;
-  border:1.5px solid var(--cream); border-radius:999px; padding:.6rem 1.5rem;
-}
-.replay-btn:hover{ background:rgba(255,255,255,.12); }
+.signature{ font-family:'Tajawal',sans-serif; font-weight:700; font-size:1.1rem; color:var(--gold); margin-top:1rem; text-shadow:0 2px 4px rgba(20,8,40,.4); }
 
 @media (prefers-reduced-motion: reduce){
   .star, .start-btn, .hint, .flame{ animation:none !important; }
@@ -155,14 +151,13 @@ button{font:inherit; color:inherit; background:none; border:none; cursor:pointer
   <h2>عيد ميلاد احلى شخص </h2>
   <p>هدية صغيرة لك اتمنى تعجبك 💙</p>
   <button class="start-btn" id="startBtn"> open 🎉</button>
-  </div>
-button class="start-btn" id="startBtn"🎉</button></div>
+</div>
 
 <main class="scene" id="scene" inert>
   <button class="mute-btn" id="muteBtn" aria-label="كتم الصوت">🔊</button>
 
-  <p class="eyebrow"></p>  يوم لتاريخ✨</p>
-    <h1 class="title">happy birthday my world </h1>
+  <p class="eyebrow">يوم للتاريخ ✨</p>
+  <h1 class="title">happy birthday my world </h1>
   <p class="subtitle"> you are 19 now ✨🎊</p>
 
   <div class="cake-wrap">
@@ -268,7 +263,7 @@ button class="start-btn" id="startBtn"🎉</button></div>
   <div class="message" id="message" hidden>
     <p class="message-main">عيد ميلاد سعيد لأفضل شخص  في دنيا 💛</p>
     <p class="message-sub">فجر اتمنى لك عيد ميلاد سعيد  و كل عام و انتي بخير و صحة و ابغى اقلك بحبك و احلى صديقة 💙💙🎂✨</p>
-    <button class="replay-btn" id="replayBtn">تمنى أمنية ثانية 🔁</button>
+    <p class="signature">من صديقك انس 💙</p>
   </div>
 </main>
 
@@ -408,7 +403,6 @@ button class="start-btn" id="startBtn"🎉</button></div>
   const cakeBtn = document.getElementById('cakeBtn');
   const hint = document.getElementById('hint');
   const messageEl = document.getElementById('message');
-  const replayBtn = document.getElementById('replayBtn');
 
   let candlesBlown = false;
 
@@ -448,14 +442,6 @@ button class="start-btn" id="startBtn"🎉</button></div>
       messageEl.hidden = false;
       requestAnimationFrame(()=> messageEl.classList.add('show'));
     }, 500);
-  });
-
-  replayBtn.addEventListener('click', () => {
-    candlesBlown = false;
-    document.querySelectorAll('.flame').forEach(f=>f.classList.remove('out'));
-    messageEl.classList.remove('show');
-    hint.style.opacity = '.88';
-    setTimeout(()=>{ messageEl.hidden = true; }, 400);
   });
 
   muteBtn.addEventListener('click', () => {
